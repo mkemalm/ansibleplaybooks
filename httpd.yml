@@ -1,4 +1,10 @@
-- name: Install the latest version of Apache
-  yum:
-    name: httpd
-    state: latest
+---
+- name: Update web servers
+  hosts: minikube
+  remote_user: mkm
+
+  tasks:
+  - name: Ensure apache is at the latest version
+    yum:
+      name: httpd
+      state: latest
